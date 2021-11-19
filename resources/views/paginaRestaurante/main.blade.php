@@ -35,7 +35,7 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>Menú | {{$nombre}}</title>
+    <title>Steak In | Elegant Restaurant & Cafe Html5 Template</title>
 </head>
 
 <body>
