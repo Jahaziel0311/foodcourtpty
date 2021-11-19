@@ -35,7 +35,7 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>Steak In | Elegant Restaurant & Cafe Html5 Template</title>
+    <title>{{$details[0]}}</title>
 </head>
 
 <body>
@@ -888,6 +888,7 @@
 	<div class="rev_slider_wrapper">
 		<div id="slider1" class="rev_slider"  data-version="5.0">
 			<ul>
+                @foreach($images_routes as $images)
 				<!-- slide 1 -->
 				<li data-transition="slotfade-horizontal" 
 					data-slotamount="default" 
@@ -895,7 +896,7 @@
 					data-easeout="Power4.easeInOut" 
 					data-masterspeed="2000">
 					<!-- MAIN IMAGE -->
-					<img src="{{asset('assets/images/banners/banner1.png')}}" alt="Slide Background Image"  width="1920" height="1280">
+					<img src="{{$images}}" alt="Slide Background Image"  width="1920" height="1280">
 					<!-- LAYER NR. 1 -->
 					<div class="tp-caption" 
 						data-x="center" data-hoffset="0" 
@@ -907,7 +908,7 @@
 						data-splitin="none" 
 						data-splitout="none" 
 						data-responsive_offset="on">
-						<div class="slide--subheadline">Gracias por venir a:</div>
+						<div class="slide--subheadline">{{$details[1]}}</div>
 					</div>
 					
 					<!-- LAYER NR. 2 -->
@@ -921,7 +922,7 @@
 						data-splitin="none" 
 						data-splitout="none" 
 						data-responsive_offset="on">
-						<div class="slide--headline extend">{{$nombre}}</div>
+						<div class="slide--headline extend">{{$details[2]}}</div>
 					</div>
 					
 					<!-- LAYER NR. 3 -->
@@ -934,7 +935,7 @@
 						data-splitin="none" 
 						data-splitout="none" 
 						data-responsive_offset="on">
-						<div class="slide--bio text-center">Tu lugar preferido de mariscos <br> y <br>productos del mar.</div>
+						<div class="slide--bio text-center">{{$details[3]}}</div>
 					</div>
 					
 					<!-- LAYER NR. 4 -->
@@ -956,126 +957,7 @@
 						</div>
 					</div>
 				</li>
-				
-				<!-- slide 2 -->
-				<li data-transition="parallaxhorizontal"
-					data-slotamount="default" 
-					data-easein="Power4.easeInOut" 
-					data-easeout="Power4.easeInOut" 
-					data-masterspeed="2000">
-					<!-- MAIN IMAGE -->
-					<img src="{{asset('assets/images/sliders/slide-bg/2.jpg')}}" alt="Slide Background Image"  width="1920" height="1280">
-					<!-- LAYER NR. 1 -->
-					<div class="tp-caption" 
-						data-x="center" data-hoffset="0" 
-						data-y="center" data-voffset="-130" 
-						data-whitespace="nowrap"
-						data-width="none"
-						data-height="none"
-                        data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-						data-splitin="none" 
-						data-splitout="none" 
-						data-responsive_offset="on">
-						<div class="slide--subheadline">Steak In Offers You</div>
-					</div>
-					
-					<!-- LAYER NR. 2 -->
-					<div class="tp-caption" 
-						data-x="center" data-hoffset="0" 
-						data-y="center" data-voffset="-65" 
-						data-whitespace="nowrap"
-						data-width="none"
-						data-height="none"
-                        data-frames='[{"delay":1750,"speed":1000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power2.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-						data-splitin="none" 
-						data-splitout="none" 
-						data-responsive_offset="on">
-						<div class="slide--headline">Winter Delicious Flavour</div>
-					</div>
-					
-					<!-- LAYER NR. 3 -->
-					<div class="tp-caption" 
-						data-x="center" data-hoffset="0" 
-						data-y="center" data-voffset="20" 
-						data-width="none"
-						data-height="none"
-                        data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-						data-splitin="none" 
-						data-splitout="none" 
-						data-responsive_offset="on">
-						<div class="slide--bio text-center">Granny is a restaurant, bar and coffee roastery located on Egypt. We have<br>awesome recipes and the most talented chefs in town! </div>
-					</div>
-					
-					<!-- LAYER NR. 4 -->
-					<div class="tp-caption" 
-						data-x="center" data-hoffset="0" 
-						data-y="center" data-voffset="100" 
-						data-width="none"
-						data-height="none"
-						data-whitespace="nowrap"
-                        data-frames='[{"delay":2250,"speed":1500,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-						data-splitin="none" 
-						data-splitout="none" 
-						data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-164","delay":""}]'
-						data-basealign="slide" 
-						data-responsive_offset="on" 
-						data-responsive="off">
-						<div class="slide-action">
-							<a class="btn btn--primary btn--inverse btn--rounded" href="#">Purchase Now</a>
-						</div>
-					</div>
-				</li>
-				
-				<!-- slide 3 -->
-				<li data-transition="fadetobottomfadefromtop"
-					data-slotamount="default" 
-					data-easein="Power4.easeInOut" 
-					data-easeout="Power4.easeInOut" 
-					data-masterspeed="2000">
-					<!-- MAIN IMAGE -->
-					<img src="{{asset('assets/images/sliders/slide-bg/6.jpg')}}" alt="Slide Background Image"  width="1920" height="1280">
-					<!-- LAYER NR. 1 -->
-					<div class="tp-caption" 
-						data-x="center" data-hoffset="0" 
-						data-y="center" data-voffset="-65" 
-						data-whitespace="nowrap"
-						data-width="none"
-						data-height="none"
-                        data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-						data-splitin="none" 
-						data-splitout="none" 
-						data-responsive_offset="on">
-						<div class="slide--subheadline">Made With Love</div>
-					</div>
-					
-					<!-- LAYER NR. 2 -->
-					<div class="tp-caption" 
-						data-x="center" data-hoffset="0" 
-						data-y="center" data-voffset="0" 
-						data-whitespace="nowrap"
-						data-width="none"
-						data-height="none"
-                        data-frames='[{"delay":1750,"speed":1500,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-						data-splitin="none" 
-						data-splitout="none" 
-						data-responsive_offset="on">
-						<div class="slide--headline extend">Hot and Ready to Serve</div>
-					</div>
-					
-					<!-- LAYER NR. 3 -->
-					<div class="tp-caption" 
-						data-x="center" data-hoffset="0" 
-						data-y="center" data-voffset="100" 
-						data-width="none"
-						data-height="none"
-                        data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-						data-splitin="none" 
-						data-splitout="none" 
-						data-responsive_offset="on">
-						<div class="slide--bio text-center">Steak In has the perfect place to enjoy fine food and great cocktails with <br>excellent service, in comfortable atmospheric surroundings. </div>
-					</div>
-				</li>
-
+                @endforeach
 			</ul>
 		</div>
 		<!-- END REVOLUTION SLIDER -->
@@ -1103,11 +985,12 @@
             <div class="col-xs-12 col-sm-12  col-md-12 shop-filter">
                 <ul class="list-inline">
                     <li><a class="active-filter" href="#" data-filter="*">All</a></li>
-                    <li><a href="#" data-filter=".filter-salads">Salads</a></li>
-                    <li><a href="#" data-filter=".filter-soup">Soup</a></li>
-                    <li><a href="#" data-filter=".filter-main">Main</a></li>
-                    <li><a href="#" data-filter=".filter-desserts">desserts</a></li>
-                    <li><a href="#" data-filter=".filter-drinks">drinks</a></li>
+
+                    
+                    @foreach($menu as $valor)
+                    <li><a href="#" data-filter=".filter-salads">{{$valor}}</a></li>
+                    @endforeach
+
                 </ul>
             </div>
             <!-- .projects-filter end -->
@@ -1115,10 +998,11 @@
         <!-- .row end -->
         <div id="shop-all" class="row">
             <!-- Product #1 -->
+            @foreach($products as $product)
             <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-desserts filter-soup">
                 <div class="product-item">
                     <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/1.jpg')}}" alt="Product" />
+                        <img src="{{$images_routes[0]}}" alt="Product" />
                         <div class="product--hover">
                             <div class="product--action">
                                 <a href="#">Add To Cart</a>
@@ -1129,11 +1013,11 @@
                     <!-- .product-img end -->
                     <div class="product--content">
                         <div class="product--title">
-                            <h3><a href="#">Grilled American Fillet</a></h3>
+                            <h3><a href="#">{{$product}}</a></h3>
                         </div>
                         <!-- .product-title end -->
                         <div class="product--price">
-                            <span>$24.95</span>
+                            <span>{{$price}}</span>
                         </div>
                         <!-- .product-price end -->
                     </div>
@@ -1141,202 +1025,8 @@
                 </div>
             </div>
             <!-- .productFilter end -->
+            @endforeach
 
-            <!-- Product #2 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-drinks">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/2.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Roast Sea Trout</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$38.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #3 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-desserts">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/3.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled Seafood Paella</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$34.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #4 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-main">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/4.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Chicken Breast</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$29.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #5 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-salads">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/5.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Roast Sea Trout</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$13.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #6-->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/6.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled American Fillet</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$13.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #7 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-drinks">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/7.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Cannoli Cream Cheese</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$24.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #8 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-main">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/8.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Spain Tapas</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$23.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
         </div>
         <!-- .row end -->
     </div>
@@ -1484,11 +1174,11 @@
         </div>
         <!-- .row end -->
         <div class="row">
-            <!-- Product #7 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
+        @foreach($products as $product)
+            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-desserts filter-soup">
                 <div class="product-item">
                     <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/7.jpg')}}" alt="Product" />
+                        <img src="{{$images_routes[0]}}" alt="Product" />
                         <div class="product--hover">
                             <div class="product--action">
                                 <a href="#">Add To Cart</a>
@@ -1499,11 +1189,11 @@
                     <!-- .product-img end -->
                     <div class="product--content">
                         <div class="product--title">
-                            <h3><a href="#">Cannoli Cream Cheese</a></h3>
+                            <h3><a href="#">{{$product}}</a></h3>
                         </div>
                         <!-- .product-title end -->
                         <div class="product--price">
-                            <span>$24.95</span>
+                            <span>{{$price}}</span>
                         </div>
                         <!-- .product-price end -->
                     </div>
@@ -1511,90 +1201,9 @@
                 </div>
             </div>
             <!-- .productFilter end -->
+            @endforeach
 
-            <!-- Product #8 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/8.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Spain Tapas</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$23.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #9 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/9.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled Seafood Paella</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$34.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-
-            <!-- Product #10 -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{asset('assets/images/shop/grid/10.jpg')}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Cannoli Cream Cheese</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$34.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
+            
         </div>
         <!-- .row end -->
     </div>
@@ -1615,11 +1224,11 @@
                     <div class="footer--widget-content">
                         <h3>Follow Us</h3>
                         <div class="footer--social-icons">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                            <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                            <a href="{{$social_media[0]}}"><i class="fa fa-facebook"></i></a>
+                            <a href="{{$social_media[1]}}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{$social_media[2]}}"><i class="fa fa-instagram"></i></a>
+                            <!-- <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="#"><i class="fa fa-tripadvisor"></i></a> -->
                         </div>
                         <!-- .social-icons end -->
                     </div>
@@ -1627,8 +1236,8 @@
                 <!-- .col-md-4 end -->
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="footer--widget-content">
-                        <img class="mb-20" src="{{asset('assets/images/logo/logo-light.png')}}" alt="logo">
-                        <p>Steak In has the perfect place to enjoy fine food and great cocktails with excellent service, in comfortable atmospheric surroundings. We have a soft dining room, combined with an open kitchen, coffee take out bar.</p>
+                        <img class="mb-20" src="{{$logo}}" alt="logo">
+                        <p>{{$restaurant_description}}</p>
                     </div>
                 </div>
                 <!-- .col-md-3 end -->
@@ -1660,13 +1269,13 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="contact-info">
-                        <span>22 Alnahas Building, Tanta, Egypt</span> -
+                        <span>Calle 7ma Sur, BARRIO COLON, La Chorrera</span> -
                         <span>02 01065370701</span> -
-                        <span>7oroof@7oroof.com</span>
+                        <span>stylesolution.com</span>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                    <span>&copy; 2017 Steak In, With Love by </span> <a href="http://themeforest.net/user/7oroof/portfolio?ref=zytheme">7oroof.com</a>
+                    <span>&copy; 2021 Style Solution, With Love by </span> <a href="http://www.stylesolutions.com">stylesolution.com</a>
                 </div>
             </div>
         </div>
