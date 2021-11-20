@@ -888,7 +888,7 @@
 	<div class="rev_slider_wrapper">
 		<div id="slider1" class="rev_slider"  data-version="5.0">
 			<ul>
-                @foreach($images_routes as $images)
+                @foreach($restaurante->carpeta->imagenes_banner() as $imagenes)
 				<!-- slide 1 -->
 				<li data-transition="slotfade-horizontal" 
 					data-slotamount="default" 
@@ -896,7 +896,7 @@
 					data-easeout="Power4.easeInOut" 
 					data-masterspeed="2000">
 					<!-- MAIN IMAGE -->
-					<img src="{{$images}}" alt="Slide Background Image"  width="1920" height="1280">
+					<img src="{{$imagenes->url}}" alt="Slide Background Image"  width="1920" height="1280">
 					<!-- LAYER NR. 1 -->
 					<div class="tp-caption" 
 						data-x="center" data-hoffset="0" 

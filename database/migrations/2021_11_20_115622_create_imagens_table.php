@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarpetasTable extends Migration
+class CreateImagensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCarpetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('carpeta', function (Blueprint $table) {
+        Schema::create('imagen', function (Blueprint $table) {
             $table->id();
             $table->integer('tipo_imagen_id');
             $table->string('url');
-            $table->integer('imagen_id');
+            $table->integer('carpeta_id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateCarpetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carpeta');
+        Schema::dropIfExists('imagen');
     }
 }

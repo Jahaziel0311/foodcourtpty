@@ -14,4 +14,12 @@ class restaurante extends Model
     {
         return $this->hasMany('App\Models\categoria');
     }
+
+    public function carpeta(){
+
+        return $this->belongsTo('App\Models\carpeta');
+
+    }
+
+
 }
