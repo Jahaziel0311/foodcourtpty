@@ -35,7 +35,7 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>{{$details[0]}}</title>
+    <title>{{$restaurante->nombre}}</title>
 </head>
 
 <body>
@@ -908,7 +908,7 @@
 						data-splitin="none" 
 						data-splitout="none" 
 						data-responsive_offset="on">
-						<div class="slide--subheadline">{{$details[1]}}</div>
+						<div class="slide--subheadline">{{$restaurante->saludo}}</div>
 					</div>
 					
 					<!-- LAYER NR. 2 -->
@@ -922,7 +922,7 @@
 						data-splitin="none" 
 						data-splitout="none" 
 						data-responsive_offset="on">
-						<div class="slide--headline extend">{{$details[2]}}</div>
+						<div class="slide--headline extend">{{$restaurante->nombre}}</div>
 					</div>
 					
 					<!-- LAYER NR. 3 -->
@@ -935,7 +935,7 @@
 						data-splitin="none" 
 						data-splitout="none" 
 						data-responsive_offset="on">
-						<div class="slide--bio text-center">{{$details[3]}}</div>
+						<div class="slide--bio text-center">{{$restaurante->slogan}}</div>
 					</div>
 					
 					<!-- LAYER NR. 4 -->
@@ -987,8 +987,8 @@
                     <li><a class="active-filter" href="#" data-filter="*">All</a></li>
 
                     
-                    @foreach($menu as $valor)
-                    <li><a href="#" data-filter=".filter-salads">{{$valor}}</a></li>
+                    @foreach($restaurante->categoria as $categoria)
+                    <li><a href="#" data-filter=".{{$categoria->nombre}}">{{$categoria->nombre}}</a></li>
                     @endforeach
 
                 </ul>
@@ -999,7 +999,7 @@
         <div id="shop-all" class="row">
             <!-- Product #1 -->
             @foreach($products as $product)
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-desserts filter-soup">
+            <div class="col-xs-12 col-sm-6 col-md-3 productFilter Entradas filter-soup">
                 <div class="product-item">
                     <div class="product--img">
                         <img src="{{$images_routes[0]}}" alt="Product" />
@@ -1237,7 +1237,7 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="footer--widget-content">
                         <img class="mb-20" src="{{$logo}}" alt="logo">
-                        <p>{{$restaurant_description}}</p>
+                        <p>{{$restaurante->descripcion}}</p>
                     </div>
                 </div>
                 <!-- .col-md-3 end -->
