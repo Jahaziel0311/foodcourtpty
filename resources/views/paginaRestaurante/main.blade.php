@@ -10,7 +10,7 @@
     <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Elegant Restaurant & Cafe Html5 Template by zytheme">
-    <link href="{{asset('assets/images/favicon/favicon.png')}}" rel="icon">
+    <link href="{!!$restaurante->carpeta->icono()->url!!}" rel="icon">
 
     <!-- Fonts
     ============================================= -->
@@ -62,8 +62,8 @@
 				<span class="icon-bar"></span>
 				</button>
                 <a class="logo" href="index.html">
-					<img class="logo-light" src="{{asset('assets/images/logo/logo-light.png')}}" alt="Steakin Logo" draggable="false">
-					<img class="logo-dark" src="{{asset('assets/images/logo/logo-dark.png')}}" alt="Steakin Logo" draggable="false">
+					<img class="logo-light" src="{!!$restaurante->carpeta->logo_ligth()->url!!}" alt="Steakin Logo" draggable="false">
+					<img class="logo-dark" src="{!!$restaurante->carpeta->logo_dark()->url!!}" alt="Steakin Logo" draggable="false">
 				</a>
             </div>
 
@@ -974,8 +974,8 @@
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
                 <div class="heading heading-3 mb-30 text--center">
-                    <p class="heading--subtitle">Discover</p>
-                    <h2 class="heading--title mb-0">Latest Dishes</h2>
+                    <p class="heading--subtitle">Descubre:</p>
+                    <h2 class="heading--title mb-0">Nuestro Menú</h2>
                     <div class="divider--shape-4"></div>
                 </div>
             </div>
@@ -1001,7 +1001,7 @@
                     @endforeach
 
                     @if (!$restaurante->combos->isEmpty())
-                        <li><a href="#" data-filter=".combo">Combos</a></li>
+                        <li><a href="#" data-filter=".combo">Promociones</a></li>
                     @endif
 
                 </ul>
@@ -1034,7 +1034,7 @@
                                 </div>
                                 <!-- .product-title end -->
                                 <div class="product--price">
-                                    <span>$ {{$producto->precio}}</span>
+                                    <span>$ {{number_format($producto->precio, 2)}}</span>
                                 </div>
                                 <!-- .product-price end -->
                             </div>
@@ -1051,7 +1051,7 @@
                                                     <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="dish img">
                                                     <div class="img-popup-overlay">
                                                         <div class="product--price">
-                                                            <span>$ {{$producto->precio}}</span>
+                                                            <span>$ {{number_format($producto->precio, 2)}}</span>
                                                         </div>
                                                         <div class="product--title">
                                                             <h3><a href="#">{{$producto->nombre}}</a></h3>
@@ -1104,7 +1104,7 @@
                             </div>
                             <!-- .product-title end -->
                             <div class="product--price">
-                                <span>$ {{$producto->precio}}</span>
+                                <span>$ {{number_format($producto->precio, 2)}}</span>
                             </div>
                             <!-- .product-price end -->
                         </div>
@@ -1121,7 +1121,7 @@
                                                 <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="dish img">
                                                 <div class="img-popup-overlay">
                                                     <div class="product--price">
-                                                        <span>$ {{$producto->precio}}</span>
+                                                        <span>$ {{number_format($producto->precio, 2)}}</span>
                                                     </div>
                                                     <div class="product--title">
                                                         <h3><a href="#">{{$producto->nombre}}</a></h3>

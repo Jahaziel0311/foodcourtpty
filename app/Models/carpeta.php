@@ -24,4 +24,19 @@ class carpeta extends Model
     {
         return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',10)->get()->first();
     }
+
+    public function logo_dark()
+    {
+        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',3)->get()->first();
+    }
+
+    public function logo_ligth()
+    {
+        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',4)->get()->first();
+    }
+
+    public function icono()
+    {
+        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',5)->get()->first();
+    }
 }

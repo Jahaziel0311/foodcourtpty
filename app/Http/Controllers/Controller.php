@@ -17,8 +17,7 @@ class Controller extends BaseController
 
         $restaurante = restaurante::where('slug',$nombreRestaurante)->get()->first();
 
-        
-             
+                     
         $images_routes = array(asset('assets/images/banners/banner1.png'),
                                 asset('assets/images/banners/banner1.png'),
                                 asset('assets/images/banners/banner1.png'));
