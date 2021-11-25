@@ -1039,7 +1039,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
                                         <div class="row reservation">
                                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="popup--img">
