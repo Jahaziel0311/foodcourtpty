@@ -15,7 +15,7 @@ class restaurante extends Model
         return $this->hasMany('App\Models\categoria');
     }
 
-    public function combo()
+    public function combos()
     {
         return $this->hasMany('App\Models\combo');
     }

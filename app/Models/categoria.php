@@ -12,6 +12,6 @@ class categoria extends Model
 
     public function productos()
     {
-        return $this->hasMany('App\Models\producto');
+        return $this->hasMany('App\Models\producto')->where('cantidad','>',0);
     }
 }

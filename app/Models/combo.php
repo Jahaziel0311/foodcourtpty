@@ -15,4 +15,10 @@ class combo extends Model
     {
         return $this->hasMany('App\Models\productoCombo');
     }
+
+    public function carpeta(){
+
+        return $this->belongsTo('App\Models\carpeta');
+
+    }
 }
