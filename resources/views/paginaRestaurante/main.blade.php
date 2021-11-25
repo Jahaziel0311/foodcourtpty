@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/revolution/css/settings.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/revolution/css/layers.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/revolution/css/navigation.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/fonts/font-awesome/css/font-awesome.min.css')}}">
+   
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -890,6 +890,7 @@
 		<div id="slider1" class="rev_slider"  data-version="5.0">
 			<ul>
                 @foreach($restaurante->carpeta->imagenes_por_tipo_imagen(1) as $imagenes)
+                
 				<!-- slide 1 -->
 				<li data-transition="slotfade-horizontal" 
 					data-slotamount="default" 
@@ -1038,7 +1039,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
                                         <div class="row reservation">
                                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="popup--img">
@@ -1356,9 +1357,7 @@
 <!-- RS Configration JS Files -->
 <script src="{{asset('assets/js/rsconfig.js')}}"></script>
 
-<script src="{{asset('assets/js/jquery-2.2.4.min.js')}}"></script>
-<script src="{{asset('assets/js/plugins.js')}}"></script>
-<script src="{{asset('assets/js/functions.js')}}"></script>
+
 </body>
 
 </html>
