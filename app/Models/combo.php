@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class categoria extends Model
+class combo extends Model
 {
     use HasFactory;
-    protected $table = "categoria";
 
-    public function productos()
+    protected $table = "combo";
+
+    public function producto_combos()
     {
-        return $this->hasMany('App\Models\producto');
+        return $this->hasMany('App\Models\productoCombo');
     }
 }

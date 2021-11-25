@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class restaurante extends Model
+class producto extends Model
 {
     use HasFactory;
-    protected $table = "restaurante";
+    protected $table = "producto";
 
-    public function categoria()
+    public function producto_combos()
     {
-        return $this->hasMany('App\Models\categoria');
-    }
-
-    public function combo()
-    {
-        return $this->hasMany('App\Models\combo');
+        return $this->hasMany('App\Models\productoCombo');
     }
 
     public function carpeta(){
@@ -25,6 +20,4 @@ class restaurante extends Model
         return $this->belongsTo('App\Models\carpeta');
 
     }
-
-
 }

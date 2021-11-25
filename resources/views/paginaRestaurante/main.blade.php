@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/revolution/css/settings.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/revolution/css/layers.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/revolution/css/navigation.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/fonts/font-awesome/css/font-awesome.min.css')}}">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -888,7 +889,7 @@
 	<div class="rev_slider_wrapper">
 		<div id="slider1" class="rev_slider"  data-version="5.0">
 			<ul>
-                @foreach($restaurante->carpeta->imagenes_banner() as $imagenes)
+                @foreach($restaurante->carpeta->imagenes_por_tipo_imagen(1) as $imagenes)
 				<!-- slide 1 -->
 				<li data-transition="slotfade-horizontal" 
 					data-slotamount="default" 
@@ -964,6 +965,7 @@
 	</div>
 	<!-- END OF SLIDER WRAPPER -->
 </section>
+
 <!-- Shop #4
 ============================================= -->
 <section id="shop" class="shop shop-4 bg-white pb-70">
@@ -988,7 +990,13 @@
 
                     
                     @foreach($restaurante->categoria as $categoria)
-                    <li><a href="#" data-filter=".{{$categoria->nombre}}">{{$categoria->nombre}}</a></li>
+
+                        @if (!$categoria->productos->isEmpty())
+
+                            <li><a href="#" data-filter=".{{$categoria->nombre}}">{{$categoria->nombre}}</a></li>
+                            
+                        @endif
+                    
                     @endforeach
 
                 </ul>
@@ -998,33 +1006,76 @@
         <!-- .row end -->
         <div id="shop-all" class="row">
             <!-- Product #1 -->
-            @foreach($products as $product)
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter Entradas filter-soup">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="{{$images_routes[0]}}" alt="Product" />
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
+            @foreach($restaurante->categoria as $categoria)
+
+                @foreach ($categoria->productos as $producto)
+                    <div class="col-xs-12 col-sm-6 col-md-3 productFilter {{$categoria->nombre}} ">
+                        
+                        <div class="product-item">
+                            <div class="product--img">
+                                <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="Product" />
+                                <div class="product--hover">
+                                    <div class="product--action">
+                                        <a class="dish-popup button" data-toggle="modal" data-target="#{{$producto->slug}}">Ver</a>
+                                    </div>
+                                </div>
+                                <!-- .product-overlay end -->
                             </div>
+                            <!-- .product-img end -->
+                            <div class="product--content">
+                                <div class="product--title">
+                                    <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                </div>
+                                <!-- .product-title end -->
+                                <div class="product--price">
+                                    <span>$ {{$producto->precio}}</span>
+                                </div>
+                                <!-- .product-price end -->
+                            </div>
+                            <!-- .product-bio end -->
                         </div>
-                        <!-- .product-overlay end -->
+                        <div class="modal fade" tabindex="-1" role="dialog" id="{{$producto->slug}}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                        <div class="row reservation">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="popup--img">
+                                                    <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="dish img">
+                                                    <div class="img-popup-overlay">
+                                                        <div class="product--price">
+                                                            <span>$ {{$producto->precio}}</span>
+                                                        </div>
+                                                        <div class="product--title">
+                                                            <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- .col-md-12 end -->
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="content-popup">
+                                                    <p>{{$producto->descripcion}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- .row end -->
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
                     </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">{{$product}}</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>{{$price}}</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
+                    <!-- .productFilter end -->
+
+                    
+                    
+                              
+                @endforeach
+                
             @endforeach
 
         </div>
@@ -1304,6 +1355,10 @@
 <script src="{{asset('assets/revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
 <!-- RS Configration JS Files -->
 <script src="{{asset('assets/js/rsconfig.js')}}"></script>
+
+<script src="{{asset('assets/js/jquery-2.2.4.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins.js')}}"></script>
+<script src="{{asset('assets/js/functions.js')}}"></script>
 </body>
 
 </html>

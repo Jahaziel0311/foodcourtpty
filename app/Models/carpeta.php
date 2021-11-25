@@ -15,8 +15,13 @@ class carpeta extends Model
         return $this->hasMany('App\Models\imagen');
     }
 
-    public function imagenes_banner()
+    public function imagenes_por_tipo_imagen($id)
     {
-        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',1)->get();
+        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',$id)->get();
+    }
+
+    public function imagen_principal()
+    {
+        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',10)->get()->first();
     }
 }
