@@ -15,6 +15,16 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
+    public function index (){
+        $restaurant = array(asset('assets/images/gallery/folio01.png'),
+        asset('assets/images/gallery/folio02.png'),
+        asset('assets/images/gallery/folio03.png'),
+        asset('assets/images/gallery/folio04.png'),
+        asset('assets/images/gallery/folio05.png'),
+        asset('assets/images/gallery/folio06.png'));
+        
+        return view ("index",['restaurant'=>$restaurant]);
+    }
     public function paginaRestaurante($nombreRestaurante){
 
         $restaurante = restaurante::where('slug',$nombreRestaurante)->get()->first();
