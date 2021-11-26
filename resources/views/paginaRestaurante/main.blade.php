@@ -1009,73 +1009,86 @@
             <!-- .projects-filter end -->
         </div>
         <!-- .row end -->
+        <?php 
+            use App\Http\Controllers\Controller; 
+            
+        ?>
         <div id="shop-all" class="row">
             <!-- Product #1 -->
             @foreach($restaurante->categoria as $categoria)
 
                 @foreach ($categoria->productos as $producto)
-                   
-                    <div class="col-xs-12 col-sm-6 col-md-3 productFilter {{$categoria->nombre}} ">
-                        
-                        <div class="product-item">
-                            <div class="product--img">
-                                <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="Product" />
-                                <div class="product--hover">
-                                    <div class="product--action">
-                                        <a class="dish-popup button" data-toggle="modal" data-target="#{{$producto->slug}}">Ver</a>
+                    @if ($producto->horario->horario_dia(now()->toArray()['dayOfWeek']))
+
+                        @if (Controller::verificarHorario(0,$producto->id))
+                            <div class="col-xs-12 col-sm-6 col-md-3 productFilter {{$categoria->nombre}} ">
+                                
+                                <div class="product-item">
+                                    <div class="product--img">
+                                        <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="Product" />
+                                        <div class="product--hover">
+                                            <div class="product--action">
+                                                <a class="dish-popup button" data-toggle="modal" data-target="#{{$producto->slug}}">Ver</a>
+                                            </div>
+                                        </div>
+                                        <!-- .product-overlay end -->
                                     </div>
+                                    <!-- .product-img end -->
+                                    <div class="product--content">
+                                        <div class="product--title">
+                                            <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                        </div>
+                                        <!-- .product-title end -->
+                                        <div class="product--price">
+                                            <span>$ {{number_format($producto->precio, 2)}}</span>
+                                        </div>
+                                        <!-- .product-price end -->
+                                    </div>
+                                    <!-- .product-bio end -->
                                 </div>
-                                <!-- .product-overlay end -->
-                            </div>
-                            <!-- .product-img end -->
-                            <div class="product--content">
-                                <div class="product--title">
-                                    <h3><a href="#">{{$producto->nombre}}</a></h3>
-                                </div>
-                                <!-- .product-title end -->
-                                <div class="product--price">
-                                    <span>$ {{number_format($producto->precio, 2)}}</span>
-                                </div>
-                                <!-- .product-price end -->
-                            </div>
-                            <!-- .product-bio end -->
-                        </div>
-                        <div class="modal fade" tabindex="-1" role="dialog" id="{{$producto->slug}}">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                        <div class="row reservation">
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="popup--img">
-                                                    <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="dish img">
-                                                    <div class="img-popup-overlay">
-                                                        <div class="product--price">
-                                                            <span>$ {{number_format($producto->precio, 2)}}</span>
+                                <div class="modal fade" tabindex="-1" role="dialog" id="{{$producto->slug}}">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                <div class="row reservation">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <div class="popup--img">
+                                                            <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="dish img">
+                                                            <div class="img-popup-overlay">
+                                                                <div class="product--price">
+                                                                    <span>$ {{number_format($producto->precio, 2)}}</span>
+                                                                </div>
+                                                                <div class="product--title">
+                                                                    <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="product--title">
-                                                            <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                                    </div>
+                                                    <!-- .col-md-12 end -->
+                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <div class="content-popup">
+                                                            <p>{{$producto->descripcion}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- .col-md-12 end -->
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class="content-popup">
-                                                    <p>{{$producto->descripcion}}</p>
-                                                </div>
+                                                <!-- .row end -->
                                             </div>
                                         </div>
-                                        <!-- .row end -->
+                                        <!-- /.modal-content -->
                                     </div>
+                                    <!-- /.modal-dialog -->
                                 </div>
-                                <!-- /.modal-content -->
+                                <!-- /.modal -->
                             </div>
-                            <!-- /.modal-dialog -->
-                        </div>
-                        <!-- /.modal -->
-                    </div>
-                    <!-- .productFilter end -->                     
+                            <!-- .productFilter end -->
+                        @endif
+                        
+                        
+                        
+                    @endif
+                   
+                                         
                               
                 @endforeach
                 
@@ -1084,68 +1097,72 @@
             
 
             @foreach ($restaurante->combos as $producto)
-                
-                <div class="col-xs-12 col-sm-6 col-md-3 productFilter combo ">
+                @if ($producto->horario->horario_dia(now()->toArray()['dayOfWeek']))
                     
-                    <div class="product-item">
-                        <div class="product--img">
-                            <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="Product" />
-                            <div class="product--hover">
-                                <div class="product--action">
-                                    <a class="dish-popup button" data-toggle="modal" data-target="#{{$producto->slug}}">Ver</a>
+                    @if (Controller::verificarHorario(1,$producto->id))                            
+                        <div class="col-xs-12 col-sm-6 col-md-3 productFilter combo ">
+                            
+                            <div class="product-item">
+                                <div class="product--img">
+                                    <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="Product" />
+                                    <div class="product--hover">
+                                        <div class="product--action">
+                                            <a class="dish-popup button" data-toggle="modal" data-target="#{{$producto->slug}}">Ver</a>
+                                        </div>
+                                    </div>
+                                    <!-- .product-overlay end -->
                                 </div>
+                                <!-- .product-img end -->
+                                <div class="product--content">
+                                    <div class="product--title">
+                                        <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                    </div>
+                                    <!-- .product-title end -->
+                                    <div class="product--price">
+                                        <span>$ {{number_format($producto->precio, 2)}}</span>
+                                    </div>
+                                    <!-- .product-price end -->
+                                </div>
+                                <!-- .product-bio end -->
                             </div>
-                            <!-- .product-overlay end -->
-                        </div>
-                        <!-- .product-img end -->
-                        <div class="product--content">
-                            <div class="product--title">
-                                <h3><a href="#">{{$producto->nombre}}</a></h3>
-                            </div>
-                            <!-- .product-title end -->
-                            <div class="product--price">
-                                <span>$ {{number_format($producto->precio, 2)}}</span>
-                            </div>
-                            <!-- .product-price end -->
-                        </div>
-                        <!-- .product-bio end -->
-                    </div>
-                    <div class="modal fade" tabindex="-1" role="dialog" id="{{$producto->slug}}">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                    <div class="row reservation">
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="popup--img">
-                                                <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="dish img">
-                                                <div class="img-popup-overlay">
-                                                    <div class="product--price">
-                                                        <span>$ {{number_format($producto->precio, 2)}}</span>
+                            <div class="modal fade" tabindex="-1" role="dialog" id="{{$producto->slug}}">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                            <div class="row reservation">
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="popup--img">
+                                                        <img src="{{$producto->carpeta->imagen_principal()->url}}" alt="dish img">
+                                                        <div class="img-popup-overlay">
+                                                            <div class="product--price">
+                                                                <span>$ {{number_format($producto->precio, 2)}}</span>
+                                                            </div>
+                                                            <div class="product--title">
+                                                                <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="product--title">
-                                                        <h3><a href="#">{{$producto->nombre}}</a></h3>
+                                                </div>
+                                                <!-- .col-md-12 end -->
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="content-popup">
+                                                        <p>{{$producto->descripcion}}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- .col-md-12 end -->
-                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <div class="content-popup">
-                                                <p>{{$producto->descripcion}}</p>
-                                            </div>
+                                            <!-- .row end -->
                                         </div>
                                     </div>
-                                    <!-- .row end -->
+                                    <!-- /.modal-content -->
                                 </div>
+                                <!-- /.modal-dialog -->
                             </div>
-                            <!-- /.modal-content -->
+                            <!-- /.modal -->
                         </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->
-                </div>
-                <!-- .productFilter end -->                     
+                        <!-- .productFilter end --> 
+                    @endif
+                @endif                    
                             
             @endforeach
                 

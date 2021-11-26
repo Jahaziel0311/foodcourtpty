@@ -20,4 +20,10 @@ class producto extends Model
         return $this->belongsTo('App\Models\carpeta');
 
     }
+
+    public function horario(){
+
+        return $this->belongsTo('App\Models\horario');
+
+    }
 }
