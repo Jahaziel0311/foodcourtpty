@@ -1363,11 +1363,25 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="footer--widget-content">
-                        <h3>Follow Us</h3>
+                        <h3>Nuestras Redes</h3>
                         <div class="footer--social-icons">
-                            <a href="{{$social_media[0]}}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{$social_media[1]}}"><i class="fa fa-twitter"></i></a>
-                            <a href="{{$social_media[2]}}"><i class="fa fa-instagram"></i></a>
+                            
+                            @if ($restaurante->facebook_url!=null)
+                                <a href="{{$restaurante->facebook_url}}"><i class="fa fa-facebook"></i></a>
+                            @endif
+                            @if ($restaurante->twitter_url!=null)
+                                <a href="{{$restaurante->twitter_url}}"><i class="fa fa-twitter"></i></a>
+                            @endif                          
+                            
+                            @if ($restaurante->instagram_url!=null)
+                                <a href="{{$restaurante->instagram_url}}"><i class="fa fa-instagram"></i></a>
+                            @endif
+
+                            @if ($restaurante->whatsapp_url!=null)
+                                <a href="{{$restaurante->whatsapp_url}}"><i class="fa fa-whatsapp"></i></a>
+                            @endif                            
+
+                            
                             <!-- <a href="#"><i class="fa fa-pinterest"></i></a>
                             <a href="#"><i class="fa fa-tripadvisor"></i></a> -->
                         </div>
@@ -1377,7 +1391,7 @@
                 <!-- .col-md-4 end -->
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="footer--widget-content">
-                        <img class="mb-20" src="{{$logo}}" alt="logo">
+                        <img class="mb-20" src="{!!$restaurante->carpeta->logo_ligth()->url!!}" alt="logo">
                         <p>{{$restaurante->descripcion}}</p>
                     </div>
                 </div>
