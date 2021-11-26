@@ -9,7 +9,7 @@
     <!--IE Compatibility Meta-->
     <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Elegant Restaurant & Cafe Html5 Template by zytheme">
+    <meta name="description" content="{{$restaurante->texto_principal}}">
     <link href="{!!$restaurante->carpeta->icono()->url!!}" rel="icon">
 
     <!-- Fonts
