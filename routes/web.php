@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\restauranteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,11 @@ Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin.i
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//RESTAURANTE
+Route::get('/admin/restaurantes', [restauranteController::class, 'index'])->name('admin.restaurante.index');
+
 
 
 Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');

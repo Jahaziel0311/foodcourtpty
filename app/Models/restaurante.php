@@ -26,5 +26,15 @@ class restaurante extends Model
 
     }
 
+    public function users()
+    {
+        return $this->hasMany('App\Models\user');
+    }
+
+    public function dueño()
+    {
+        return $this->hasMany('App\Models\user')->where('rol_id',2)->get()->first();
+    }
+
 
 }
