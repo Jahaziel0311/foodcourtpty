@@ -17,6 +17,7 @@ use App\Http\Controllers\loginController;
 |
 */
 
+
 //LOGIN
 
 Route::get('/admin/login', [loginController::class, 'index'])->name('login.index');
@@ -24,7 +25,8 @@ Route::Post('/admin/login', [loginController::class, 'login'])->name('login.logi
 
 
 //INDEX-DASHBOARD
-Route::get('/admin/dashboard', [adminController::class, 'index'])->name('index');
+Route::get('/', [Controller::class, 'index'])->name('index');
+Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin.index');
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,5 +34,6 @@ Route::get('/', function () {
 
 
 Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');
+
 
 
