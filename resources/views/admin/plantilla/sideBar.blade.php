@@ -19,10 +19,12 @@
                         </a>
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item">
-                                <a href="{{$pantalla_menu->url}}" class="sidebar-link">
-                                    <i class="icon-Record"></i>
-                                    <span class="hide-menu">Lista de {{$pantalla_menu->nombre}}</span>
-                                </a>
+                                @if($pantalla_menu->url != '#')
+                                    <a href="{{$pantalla_menu->url}}" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu">Lista de {{$pantalla_menu->nombre}}</span>
+                                    </a>
+                                @endif
                             </li>  
 
                             @foreach($pantalla_menu->sub_menu() as $sub_menu)

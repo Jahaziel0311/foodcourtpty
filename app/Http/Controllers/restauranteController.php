@@ -12,8 +12,9 @@ class restauranteController extends Controller
         if(Auth::user()){ 
 
             $restaurantes = restaurante::get();
-
-            return view('admin.restaurante.index',['resultado'=>$restaurantes]);
+            $permisos = Controller::permisos('restaurante');
+            
+            return view('admin.restaurante.index',['resultado'=>$restaurantes,"permisos"=>$permisos]);
 
         }else {
 

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 use App\Models\restaurante;
 use App\Models\producto;
 use App\Models\combo;
+use App\Models\rol_pantalla;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
@@ -87,10 +89,72 @@ class Controller extends BaseController
 
 
         }
-        
-        
-
-        
 
     }
+
+    public static function cantidadNotificaciones(){
+
+        $cantidad = notificacion::whereNull('read_at')
+                                    ->where('notifiable_id',Auth::user()->id)
+                                    ->count();
+        
+        return $cantidad;
+        
+            
+        
+    }
+
+    public static function permisos($ruta){
+
+        $pantalla_rol = Controller::urlsPantallasXUsuario();
+      
+       
+        $permisos['create']=0;
+        $permisos['update']=0;
+        $permisos['delete']=0;       
+        $permisos['insert']=0;
+        
+       
+        foreach ($pantalla_rol as $pantalla) {
+            
+            if ('/admin/'.$ruta.'/update'==$pantalla) {
+                $permisos['update']=1;
+            } 
+            if ('/admin/'.$ruta.'/create'==$pantalla) {
+                $permisos['create']=1;
+            } 
+            if ('/admin/'.$ruta.'/delete'==$pantalla) {
+                $permisos['delete']=1;
+            }            
+                      
+            
+            if ('/admin/'.$ruta.'/insert'==$pantalla) {
+                $permisos['insert']=1;
+            }
+       
+            
+        }    
+        
+        
+        return $permisos;
+
+
+        
+    }
+
+
+    public static function urlsPantallasXUsuario(){
+        $pantallas_rol = rol_pantalla::where('rol_id',Auth::user()->rol->id)->get();
+        $lista = array();
+
+        foreach($pantallas_rol as $pantalla_rol){
+            array_push($lista,$pantalla_rol->pantalla->url);
+        }       
+
+        
+       
+        return $lista;
+
+    }
+
 }  

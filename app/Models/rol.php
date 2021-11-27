@@ -30,6 +30,6 @@ class rol extends Model
             array_push($lista,$pantalla_rol->pantalla->id);
         }
 
-        return pantalla::where('padre',0)->where('estado',1)->get();
+        return pantalla::where('padre',0)->where('estado',1)->orderBy('orden')->get();
     }
 }
