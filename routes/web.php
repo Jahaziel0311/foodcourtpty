@@ -20,6 +20,8 @@ use App\Http\Controllers\loginController;
 
 //LOGIN
 
+
+
 Route::get('/admin/login', [loginController::class, 'index'])->name('login.index');
 Route::Post('/admin/login', [loginController::class, 'login'])->name('login.login');
 
