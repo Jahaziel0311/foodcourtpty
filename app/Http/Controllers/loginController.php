@@ -30,7 +30,7 @@ class loginController extends Controller
                 
                 Auth::login($usuario);
 
-                return redirect(route('index'));
+                return redirect(route('admin.index'));
             }
             else {                
                 
