@@ -31,9 +31,7 @@ Route::Post('/admin/login', [loginController::class, 'login'])->name('login.logi
 Route::get('/', [Controller::class, 'index'])->name('index');
 Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 //RESTAURANTE
