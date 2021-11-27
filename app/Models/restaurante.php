@@ -12,7 +12,7 @@ class restaurante extends Model
 
     public function categoria()
     {
-        return $this->hasMany('App\Models\categoria');
+        return $this->hasMany('App\Models\categoria')->orderBy('orden');
     }
 
     public function combos()

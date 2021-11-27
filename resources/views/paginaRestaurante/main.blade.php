@@ -955,7 +955,7 @@
 						data-responsive_offset="on" 
 						data-responsive="off">
 						<div class="slide-action">
-							<a class="btn btn--primary btn--inverse btn--rounded btn--lg" href="#">Menú</a>
+							<a class="btn btn--primary btn--inverse btn--rounded btn--lg" href="#shop">Menú</a>
 						</div>
 					</div>
 				</li>

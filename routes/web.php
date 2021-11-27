@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\loginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,20 @@ use App\Http\Controllers\Controller;
 |
 */
 
+//LOGIN
+
+Route::get('/admin/login', [loginController::class, 'index'])->name('login.index');
+Route::Post('/admin/login', [loginController::class, 'login'])->name('login.login');
+
+
+//INDEX-DASHBOARD
+Route::get('/admin/dashboard', [adminController::class, 'index'])->name('index');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');
+
+
