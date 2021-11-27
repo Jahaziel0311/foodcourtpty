@@ -15,6 +15,10 @@ class adminController extends Controller
 
                 return view('admin.index.index');
 
+            }else{
+
+                return view('admin.index.index');
+
             }
 
         }else {
