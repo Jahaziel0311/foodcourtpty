@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class rol extends Model
 {
@@ -22,14 +23,16 @@ class rol extends Model
 
     public function menu()
     {
-        $rol_id = Auth()->user()->rol->id;
+        $rol_id = Auth::user()->rol->id;
         $pantallas_rol = rol_pantalla::where('rol_id',$rol_id)->get();
         $lista = array();
 
         foreach($pantallas_rol as $pantalla_rol){
             array_push($lista,$pantalla_rol->pantalla->id);
         }
+       
 
-        return pantalla::where('padre',0)->where('estado',1)->orderBy('orden')->get();
+        return pantalla::where('padre',0)->whereIn('id',$lista)->where('estado',1)->orderBy('orden')->get();
+        
     }
 }

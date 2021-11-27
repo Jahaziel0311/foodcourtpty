@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\rol_pantalla;
 
 class adminController extends Controller
 {
     
     public function index(){
+
+        
 
         if(Auth::user()){ 
 
@@ -15,8 +18,8 @@ class adminController extends Controller
 
                 return view('admin.index.index');
 
-            }else{
-
+            }else{                
+                
                 return view('admin.index.index');
 
             }
