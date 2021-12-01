@@ -23,4 +23,5 @@ class restauranteController extends Controller
         }
 
     }
+
 }
