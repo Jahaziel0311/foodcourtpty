@@ -36,8 +36,9 @@ Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin.i
 
 //RESTAURANTE
 Route::get('/admin/restaurantes', [restauranteController::class, 'index'])->name('admin.restaurante.index');
-
-
+Route::Post('/admin/restaurantes/create', [restauranteController::class, 'insert'])->name('admin.restautante.insert');
+Route::get('/admin/restaurantes/config', [restauranteController::class, 'config'])->name('admin.restautante.config');
+Route::Post('/admin/restaurantes/config/save', [restauranteController::class, 'configSave'])->name('admin.restautante.config.save');
 
 Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');
 
