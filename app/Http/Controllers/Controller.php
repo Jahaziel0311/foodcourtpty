@@ -56,7 +56,7 @@ class Controller extends BaseController
             return view('paginaRestaurante.main',['restaurante'=>$restaurante,'images_routes'=>$images_routes,"products"=>$products, "price"=>$price, "social_media"=>$social_media, "logo"=>$logo]);
         
         }else{
-            return "Pagina en Construccion";
+            return view('paginaRestaurante.building',['restaurante'=>$restaurante]);
         }
     }
 
