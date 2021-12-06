@@ -10,6 +10,7 @@
 <!--muestro el error-->
 @include('admin.plantilla.error')
 <!-- fin del error-->
+<div class="container-fluid">
 <div class="row">
     <div class="col-lg-10 offset-lg-1">
         
@@ -60,7 +61,7 @@
                                     @include('admin.plantilla.modals.pantalla.editarPantalla')
 
                                     
-                                        <!-- <a href="{{route('admin.pantalla.delete', ['id' => $fila->id])}}" onclick="confirm('Desea eliminaresta pantalla?')"> -->
+                                      
                                     <button type="button" data-target="#deletePantalla{{$fila->id}}" class="btn btn-danger btn-sm" id="deletePantalla"                
                                         data-toggle="modal"  title="Eliminar" >
                                         <i class="fas fa-trash"></i>
