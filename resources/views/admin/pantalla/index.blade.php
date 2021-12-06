@@ -16,7 +16,7 @@
         
         
         <div class="col-sm-2 offset-sm-10">
-            <button class="btn btn-primary " id="btnAgregar"  data-toggle="modal" data-target="#crearPantalla">
+            <button class="btn sscolor text-white" id="btnAgregar"  data-toggle="modal" data-target="#crearPantalla">
                  <span class="btn-label"><i class="fas fa-plus"></i> </span><span class="btn-text">
                       Crear Pantalla
                 </span>
@@ -28,7 +28,7 @@
         <div class="table-responsive ">
             <table id="zero_config" class="table ">
                 <thead>
-                    <tr class="bg-success text-white">
+                    <tr class="ppcolor text-white">
                         <th>id</th>
                         <th>Nombre</th>          
                         <th>Url</th>
@@ -46,14 +46,14 @@
 
 
                             <td>
-                            <button type="button" class="btn btn-success btn-sm" id="previewPantalla"                
+                            <button type="button" class="btn sscolor text-white btn-sm" id="previewPantalla"                
                                         data-toggle="modal" data-target="#mostrarPantalla{{$fila->id}}" title="Ver">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                     @include('admin.plantilla.modals.pantalla.mostrarPantalla')
 
                                     <a href="#" data-toggle="modal" data-target="#updatePantalla{{$fila->id}}">
-                                    <button type="button" class="btn btn-primary btn-sm" id="editPantalla"                
+                                    <button type="button" class="btn sscolor text-white btn-sm" id="editPantalla"                
                                          title="Editar">
                                         <i class="fa fa-edit"></i>
                                     </button>
@@ -62,7 +62,7 @@
 
                                     
                                       
-                                    <button type="button" data-target="#deletePantalla{{$fila->id}}" class="btn btn-danger btn-sm" id="deletePantalla"                
+                                    <button type="button" data-target="#deletePantalla{{$fila->id}}" class="btn sscolor text-white btn-sm" id="deletePantalla"                
                                         data-toggle="modal"  title="Eliminar" >
                                         <i class="fas fa-trash"></i>
                                     </button>
@@ -76,7 +76,7 @@
                 </tbody>
                 <tfoot>
                 <tr >
-                <tr class="bg-success text-white">
+                <tr class="ppcolor text-white">
                     <th>id</th>
                     <th>Nombre</th>
 

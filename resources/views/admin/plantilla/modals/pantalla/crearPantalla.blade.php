@@ -1,9 +1,9 @@
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="crearPantalla" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header ppcolor text-white">
             <h5 class="modal-title" id="myLargeModalLabel">Pantallas</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
 
             </div>
             <div class="modal-body">
@@ -70,7 +70,9 @@
                     </div>
                 </div>
 
-                <button type="submit" name="btnCrear" class="btn btn-primary" >Crear</button>
+                                <div class="modal-footer">                                        
+                                    <button type="submit" id="btnCrearMedicoModal"  class="btn sscolor text-white text-left">Crear</button>
+                                </div>
             </form>
                         </div>
                     </div>
