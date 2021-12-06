@@ -16,7 +16,7 @@
         
         
         <div class="col-sm-2 offset-sm-10">
-            <button class="btn sscolor text-white" id="btnAgregar"  data-toggle="modal" data-target="#crearPantalla">
+            <button class="btn btn-primary text-white" id="btnAgregar"  data-toggle="modal" data-target="#crearPantalla">
                  <span class="btn-label"><i class="fas fa-plus"></i> </span><span class="btn-text">
                       Crear Pantalla
                 </span>

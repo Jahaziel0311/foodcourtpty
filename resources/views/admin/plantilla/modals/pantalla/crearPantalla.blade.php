@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header ppcolor text-white">
-            <h5 class="modal-title" id="myLargeModalLabel">Pantallas</h5>
+            <h5 class="modal-title" id="myLargeModalLabel">Crear Pantallas</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">×</button>
 
             </div>
@@ -12,7 +12,7 @@
                         <div class="form-wrap">
                         <form action="{{route('admin.pantalla.insert')}}" method="POST" role="form" autocomplete="off" name="formulario">
                     @csrf
-                <h1>Crear Pantalla</h1> <br>
+                
                                          <!--muestro el error-->
                                          @include('admin.plantilla.modals.pantalla.errorPantalla')
                                         <!-- fin del error-->
@@ -32,7 +32,7 @@
                     <label for="inputState">Padre</label>
                     <select name="txtPadre" id="selectPadre" class="form-control" onchange="hideElements();" required>
                     <option value="0"  >Raiz</option>
-                    @foreach($pantallas as $fila)
+                    @foreach($padre as $fila)
                         <option value="{{$fila->id}}" selected>{{$fila->nombre}}</option>
                     @endforeach
                     </select>

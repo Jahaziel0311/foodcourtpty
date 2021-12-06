@@ -49,6 +49,9 @@ Route::get('/admin/pantallas/create', [pantallaController::class, 'create'])->na
 Route::post('/admin/pantallas/create', [pantallaController::class, 'insert'])->name("admin.pantalla.insert") ;
 Route::post('/admin/pantallas', [pantallaController::class, 'update'])->name("admin.pantalla.update") ;
 Route::get("/medico/delete/{id}", [pantallaController::class, 'delete'])->name("admin.pantalla.delete");
+Route::get("/admin/pantalla/asignar", [pantallaController::class, 'asignarPantalla'])->name("admin.pantalla.asignarPantalla");
+Route::get("/admin/pantalla/asignar/{id}", [pantallaController::class, 'asignarPantallaXId'])->name("admin.pantalla.asignarPantalla");
+Route::Post("/admin/pantalla/asignar/save", [pantallaController::class, 'asignarPantallaSave'])->name("admin.pantalla.asignar.save");
 
 
 Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');

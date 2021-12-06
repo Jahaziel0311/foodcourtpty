@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\pantalla;
+use App\Models\rol;
+use App\Models\rol_pantalla;
+use Illuminate\Support\Facades\DB;
 
 
 class pantallaController extends Controller
@@ -160,6 +163,107 @@ class pantallaController extends Controller
             
               
             
+        }else {
+
+            return redirect(route('login.index'));
+            
+        }
+    }
+
+    public function asignarPantalla(){
+
+        
+
+        if(Auth::user()){ 
+
+            $pantallas_menu = Controller::urlsPantallasXUsuario();
+
+            if (in_array('/admin/pantalla/asignar/0',$pantallas_menu)){
+
+                $roles = rol::where('estado',1)->get();
+
+                $pantallas = pantalla::get();
+
+                $lista_pantallas= array();
+
+                return view('admin.pantalla.asignar',['roles'=>$roles,'pantallas'=>$pantallas,'lista_pantallas'=>$lista_pantallas]);        
+
+            }
+            
+            return redirect(route('admin.index'));
+
+        }else {
+
+            return redirect(route('login.index'));
+            
+        }
+        
+    }
+
+    public function asignarPantallaXId($id){
+        
+        
+
+        if(Auth::user()){ 
+
+            $pantallas_menu = Controller::urlsPantallasXUsuario();
+
+            if (in_array('/admin/pantalla/asignar/0',$pantallas_menu)){
+
+                $roles = rol::where('estado',1)->get();
+
+                $rol = rol::find($id);
+
+                $pantallas = pantalla::get();
+                
+                $pantallas_rol= rol_pantalla::get()->where('rol_id',$id);
+                        
+                $lista_pantallas= array();
+                foreach($pantallas_rol as $pantalla){
+                    array_push($lista_pantallas,$pantalla->pantalla_id);
+                }
+
+                return view('admin.pantalla.asignarXRol',['roles'=>$roles,'rol'=>$rol,'pantallas'=>$pantallas,'lista_pantallas'=>$lista_pantallas]);        
+
+            }
+            
+            return redirect(route('admin.index'));
+
+        }else {
+
+            return redirect(route('login.index'));
+            
+        }
+    }
+
+    public function asignarPantallaSave(Request $request){
+        
+        if(Auth::user()){ 
+
+            $pantallas_menu = Controller::urlsPantallasXUsuario();
+
+            if (in_array('/admin/pantalla/asignar/0',$pantallas_menu)){
+
+                DB::table('rol_pantalla')->where('rol_id', '=', $request->selectRol)->delete();
+                if (!empty($request->pantallas_id )) {
+                                    
+                    foreach($request->pantallas_id as $pantalla_id){ 
+
+                        $obj_pantalla= new rol_pantalla();
+                        $obj_pantalla->rol_id= $request->selectRol;
+                        $obj_pantalla->pantalla_id = $pantalla_id;
+                        $obj_pantalla->save();
+                        
+                    }  
+                }
+                
+                
+                return redirect()->back()->withErrors(['success' => "El rol se modifico correctamente" ]);       
+
+            }
+            
+            return redirect(route('admin.index'));
+
         }else {
 
             return redirect(route('login.index'));

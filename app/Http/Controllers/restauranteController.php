@@ -105,13 +105,11 @@ class restauranteController extends Controller
 
             }else {
 
-                return redirect(route('login.index'));
+                return redirect(route('admin.index'));
                 
             }
                  
-              
-            return redirect(route('admin.index'));
-
+             
         }else {
 
             return redirect(route('login.index'));
@@ -169,12 +167,12 @@ class restauranteController extends Controller
 
             }else {
 
-                return redirect(route('login.index'));
+                return redirect(route('admin.index'));
                 
             }
                    
               
-            return redirect(route('admin.index'));
+            
 
         }else {
 
@@ -196,12 +194,12 @@ class restauranteController extends Controller
 
             }else {
 
-                return redirect(route('login.index'));
+                return redirect(route('admin.index'));
                 
             }
                   
               
-            return redirect(route('admin.index'));
+            
 
         }else {
 
