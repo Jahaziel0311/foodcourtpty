@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\restaurante;
 use App\Models\carpeta;
 use App\Models\user;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 class restauranteController extends Controller
 {
@@ -95,9 +95,22 @@ class restauranteController extends Controller
 
         if(Auth::user()){ 
 
-            $restaurante = Auth::user()->restaurante;
+            $pantallas_menu = Controller::urlsPantallasXUsuario();
 
-            return view('admin.restaurante.config',['restaurante'=>$restaurante]);
+            if (in_array('/admin/restaurante/create',$pantallas_menu)){
+
+                $restaurante = Auth::user()->restaurante;
+
+                return view('admin.restaurante.config',['restaurante'=>$restaurante]);
+
+            }else {
+
+                return redirect(route('login.index'));
+                
+            }
+                 
+              
+            return redirect(route('admin.index'));
 
         }else {
 
@@ -111,20 +124,84 @@ class restauranteController extends Controller
 
         if(Auth::user()){ 
 
-            $restaurante = restaurante::find(Auth::user()->restaurante->id);
+            $pantallas_menu = Controller::urlsPantallasXUsuario();
 
-            $restaurante->nombre            = $request->txtNombre;
-            $restaurante->saludo            = $request->txtSaludo;
-            $restaurante->texto_principal   = $request->txtTextoPrincipal;
-            $restaurante->slogan            = $request->txtSlogan;
-            $restaurante->facebook_url      = $request->txtFacebook;
-            $restaurante->instagram_url     = $request->txtInstagram;
-            $restaurante->whatsapp_url      = $request->txtWhatsapp;
-            $restaurante->twitter_url       = $request->txtTwitter;
-            $restaurante->descripcion       = $request->txtDescripcion;
-            $restaurante->save();
+            if (in_array('/admin/restaurante/create',$pantallas_menu)){
 
-            return redirect()->back()->withErrors(['success' => "Se actualizo correctamente"]);
+                $restaurante = restaurante::find(Auth::user()->restaurante->id);
+
+                $restaurante->nombre            = $request->txtNombre;
+                $restaurante->saludo            = $request->txtSaludo;
+                $restaurante->texto_principal   = $request->txtTextoPrincipal;
+                $restaurante->slogan            = $request->txtSlogan;
+                $restaurante->facebook_url      = $request->txtFacebook;
+                $restaurante->instagram_url     = $request->txtInstagram;
+                $restaurante->whatsapp_url      = $request->txtWhatsapp;
+                $restaurante->twitter_url       = $request->txtTwitter;
+                $restaurante->descripcion       = $request->txtDescripcion;
+                $restaurante->save();
+
+                return redirect(route('admin.restautante.config2'))->withErrors(['success' => "Los datos se guardaron correctamente"]);
+            }            
+              
+            return redirect(route('admin.index'));
+
+        }else {
+
+            return redirect(route('login.index'));
+            
+        }
+
+    }
+
+    public function config2(){
+
+        if(Auth::user()){ 
+
+            $pantallas_menu = Controller::urlsPantallasXUsuario();
+
+            if (in_array('/admin/restaurante/create',$pantallas_menu)){
+
+
+                $restaurante = Auth::user()->restaurante;
+
+                return view('admin.restaurante.config2',['restaurante'=>$restaurante]);
+
+            }else {
+
+                return redirect(route('login.index'));
+                
+            }
+                   
+              
+            return redirect(route('admin.index'));
+
+        }else {
+
+            return redirect(route('login.index'));
+            
+        }
+
+    }
+
+    public function configSave2(Request $request){
+
+        if(Auth::user()){ 
+
+            $pantallas_menu = Controller::urlsPantallasXUsuario();
+
+            if (in_array('/admin/restaurante/create',$pantallas_menu)){
+
+                return $request;
+
+            }else {
+
+                return redirect(route('login.index'));
+                
+            }
+                  
+              
+            return redirect(route('admin.index'));
 
         }else {
 

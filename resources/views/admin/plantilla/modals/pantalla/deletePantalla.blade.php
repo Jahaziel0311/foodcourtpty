@@ -19,7 +19,7 @@
 
                                                             <div class="modal-footer">
                                     <a href="{{route('admin.pantalla.delete', ['id' => $fila->id])}}">
-                                    <button type="button" class="btn btn-danger">Elimiar</button>
+                                    <button type="button" class="btn btn-danger">Eliminar</button>
                                     </a>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 </div>

@@ -98,7 +98,7 @@
                 
                 
                 <div class="modal-footer">                                        
-                    <button type="submit" id="btnCrearMedicoModal"  class="btn btn-primary text-left">Guardar</button>
+                    <button type="submit" id="btnCrearMedicoModal"  class="btn btn-primary text-left">Siguiente</button>
                 </div>
                 
 

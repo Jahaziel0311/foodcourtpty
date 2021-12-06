@@ -46,7 +46,7 @@
 
 
                             <td>
-                            <button type="button" class="btn sscolor text-white btn-sm" id="previewPantalla"                
+                            <button type="button" class="btn btn-success text-white btn-sm" id="previewPantalla"                
                                         data-toggle="modal" data-target="#mostrarPantalla{{$fila->id}}" title="Ver">
                                         <i class="fas fa-eye"></i>
                                     </button>
@@ -62,7 +62,7 @@
 
                                     
                                       
-                                    <button type="button" data-target="#deletePantalla{{$fila->id}}" class="btn sscolor text-white btn-sm" id="deletePantalla"                
+                                    <button type="button" data-target="#deletePantalla{{$fila->id}}" class="btn btn-danger text-white btn-sm" id="deletePantalla"                
                                         data-toggle="modal"  title="Eliminar" >
                                         <i class="fas fa-trash"></i>
                                     </button>

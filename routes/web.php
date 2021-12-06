@@ -26,7 +26,7 @@ use App\Http\Controllers\pantallaController;
 
 Route::get('/admin/login', [loginController::class, 'index'])->name('login.index');
 Route::Post('/admin/login', [loginController::class, 'login'])->name('login.login');
-
+Route::get('/admin/logout', [loginController::class, 'logout'])->name('login.logout');
 
 //INDEX-DASHBOARD
 Route::get('/', [Controller::class, 'index'])->name('index');
@@ -40,6 +40,8 @@ Route::get('/admin/restaurantes', [restauranteController::class, 'index'])->name
 Route::Post('/admin/restaurantes/create', [restauranteController::class, 'insert'])->name('admin.restautante.insert');
 Route::get('/admin/restaurantes/config', [restauranteController::class, 'config'])->name('admin.restautante.config');
 Route::Post('/admin/restaurantes/config/save', [restauranteController::class, 'configSave'])->name('admin.restautante.config.save');
+Route::get('/admin/restaurantes/config2', [restauranteController::class, 'config2'])->name('admin.restautante.config2');
+Route::Post('/admin/restaurantes/config/save2', [restauranteController::class, 'configSave2'])->name('admin.restautante.config.save2');
 
 //PANTALLA
 Route::get('/admin/pantallas', [pantallaController::class, 'index'])->name('admin.pantalla.index');

@@ -16,6 +16,7 @@
     <link href="{{asset('admin/assets/extra-libs/c3/c3.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/assets/libs/morris.js/morris.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
+    @yield('stylesheet')
     <link href="{{asset('admin/dist/css/style.min.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -139,7 +140,14 @@
     <script src="{{asset('admin/assets/libs/raphael/raphael.min.js')}}"></script>
     <script src="{{asset('admin/assets/libs/morris.js/morris.min.js')}}"></script>
 
-    <script src="{{asset('admin/dist/js/pages/dashboards/dashboard1.js')}}"></script>
+    <script src="{{asset('admin/dist/js/pages/dashboards/dashboard1.js')}}"></script> 
+    
+  
+    
+  
+   
+    
+    @yield('script2')
 </body>
 
 </html>

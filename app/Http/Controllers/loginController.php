@@ -42,4 +42,11 @@ class loginController extends Controller
             return redirect()->back()->withErrors(['danger' => "El usuario es incorrecto."])->withInput($request->all());
         }
     }
+
+    public function logout(){
+        
+        Auth::logout();
+
+        return redirect(route('login.index'));
+    }
 }

@@ -70,7 +70,7 @@
 					data-easeout="Power4.easeInOut" 
 					data-masterspeed="2000">
 					<!-- MAIN IMAGE -->
-					<img src="https://elviajerofeliz.com/wp-content/uploads/2019/11/Comida-t%C3%ADpica-de-India-curry.jpg" alt="Slide Background Image"  width="1920" height="1280">
+					<img src="{{asset('assets/images/banners/building.jpg')}}" alt="Slide Background Image"  width="1920" height="1280">
 					<!-- LAYER NR. 1 -->
 					<div class="tp-caption" 
 						data-x="center" data-hoffset="0" 
