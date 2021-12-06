@@ -6,6 +6,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\restauranteController;
+use App\Http\Controllers\pantallaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,14 @@ Route::get('/admin/restaurantes', [restauranteController::class, 'index'])->name
 
 
 
-Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');
+//PANTALLA
+Route::get('/admin/pantallas', [pantallaController::class, 'index'])->name('admin.pantalla.index');
+Route::get('/admin/pantallas/create', [pantallaController::class, 'create'])->name('admin.pantalla.create');
+Route::post('/admin/pantallas/create', [pantallaController::class, 'insert'])->name("admin.pantalla.insert") ;
+Route::post('/admin/pantallas', [pantallaController::class, 'update'])->name("admin.pantalla.update") ;
+Route::get("/medico/delete/{id}", [pantallaController::class, 'delete'])->name("admin.pantalla.delete");
 
+
+Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');
 
 

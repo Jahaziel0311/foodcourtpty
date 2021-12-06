@@ -17,6 +17,7 @@
     <link href="{{asset('admin/assets/libs/morris.js/morris.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{asset('admin/dist/css/style.min.css')}}" rel="stylesheet">
+	<link href="{{asset('admin/dist/css/style.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -271,6 +272,8 @@
     <!--This page plugins -->
     <script src="{{asset('admin/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('admin/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
+	<!--Custom JavaScript FoodCourtPTY -->
+	<script  src="{{asset('admin/dist/js/function.js')}}"></script>
 </body>
 
 </html>

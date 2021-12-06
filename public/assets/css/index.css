@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 :root{
-  --primary-color: #04AA6D;
-  --primary-color_hover: #049660;
+  --primary-color: #aa9904;
+  --primary-color_hover: #370b44;
   --secondary-color: #222222;
   --color-white: #fff;
   --color-black: #000;
@@ -372,4 +372,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .filter{
   filter:saturate(0%) ;
+}
+
+
+@media screen and (max-width: 768px){
+  .container_page{
+    grid-template-areas: "header header header"
+                         "content content content"
+                         "footer footer footer";    
+  }
 }
