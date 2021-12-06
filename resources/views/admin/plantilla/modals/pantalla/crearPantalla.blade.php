@@ -13,7 +13,6 @@
                         <form action="{{route('admin.pantalla.insert')}}" method="POST" role="form" autocomplete="off" name="formulario">
                     @csrf
                 <h1>Crear Pantalla</h1> <br>
-                <h1>Actualizar Pantalla</h1> <br>
                                          <!--muestro el error-->
                                          @include('admin.plantilla.modals.pantalla.errorPantalla')
                                         <!-- fin del error-->
