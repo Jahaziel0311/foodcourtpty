@@ -31,29 +31,44 @@ class Controller extends BaseController
 
         $restaurante = restaurante::where('slug',$nombreRestaurante)->get()->first();
 
-        
+        if(!empty($restaurante)){
+
+            if($restaurante->estado != 2){
                      
-        $images_routes = array(asset('assets/images/banners/banner1.png'),
-                                asset('assets/images/banners/banner1.png'),
-                                asset('assets/images/banners/banner1.png'));
+                $images_routes = array(asset('assets/images/banners/banner1.png'),
+                                        asset('assets/images/banners/banner1.png'),
+                                        asset('assets/images/banners/banner1.png'));
+                
+                $products = array("Producto 1",
+                                "Producto 2",
+                                "Producto 3",
+                                "Producto 4",
+                                "Producto 5",);
+                $price = ("34.95");
+    
+                $social_media = array("https://www.facebook.com/",
+                                "https://twitter.com/",
+                                "https://www.instagram.com/");
+                
+                
+    
+                $logo = (asset('assets/images/logo/logo-light.png'));
+    
+    
+                return view('paginaRestaurante.main',['restaurante'=>$restaurante,'images_routes'=>$images_routes,"products"=>$products, "price"=>$price, "social_media"=>$social_media, "logo"=>$logo]);
+            
+            }else{
+    
+                return view('paginaRestaurante.building',['restaurante'=>$restaurante]);
+            }
+
+        }else{
+
+            return redirect(route('index'));
+
+        }
+
         
-        $products = array("Producto 1",
-                        "Producto 2",
-                        "Producto 3",
-                        "Producto 4",
-                        "Producto 5",);
-        $price = ("34.95");
-
-        $social_media = array("https://www.facebook.com/",
-                        "https://twitter.com/",
-                        "https://www.instagram.com/");
-        
-        
-
-        $logo = (asset('assets/images/logo/logo-light.png'));
-
-
-        return view('paginaRestaurante.main',['restaurante'=>$restaurante,'images_routes'=>$images_routes,"products"=>$products, "price"=>$price, "social_media"=>$social_media, "logo"=>$logo]);
     }
 
     public static function verificarHorario($tipo,$id){
@@ -155,6 +170,16 @@ class Controller extends BaseController
        
         return $lista;
 
+    }
+
+    public static function generaPassword($longitud){
+        $characters = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $longitud; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
 }  

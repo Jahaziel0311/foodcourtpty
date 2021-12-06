@@ -18,6 +18,16 @@ class adminController extends Controller
 
                 return view('admin.index.index');
 
+            }elseif(Auth::user()->rol->id == 2){
+
+                
+                if(Auth::user()->restaurante->estado == 2){
+                   
+
+                    return redirect(route('admin.restautante.config'));
+                }
+                
+
             }else{                
                 
                 return view('admin.index.index');

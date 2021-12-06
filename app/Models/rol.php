@@ -24,7 +24,7 @@ class rol extends Model
     public function menu()
     {
         $rol_id = Auth::user()->rol->id;
-        $pantallas_rol = rol_pantalla::where('rol_id',$rol_id)->get();
+        $pantallas_rol = rolPantalla::where('rol_id',$rol_id)->get();
         $lista = array();
 
         foreach($pantallas_rol as $pantalla_rol){
