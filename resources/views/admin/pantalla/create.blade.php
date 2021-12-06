@@ -1,7 +1,7 @@
 @extends('admin.plantilla.principalDT')
 
 @section('titulo')Admin-Pantallas @endsection
-@section('titulo_pagina') Pantallas @endsection
+@section('titulo_pagina') Crear Pantallas @endsection
 
 @section('contenido')
 <br>
@@ -12,16 +12,10 @@
 <!-- fin del error-->
 
 
-<div class="row">
-    <div class="col-lg-10 offset-lg-1">
-        
-        
-
-           
-        <div class="table-responsive ">
+    <div class="container-fluid col-lg-8 offset-lg-2">
         <form action="" method="POST" role="form" autocomplete="off" name="formulario">
                     @csrf
-                <h1>Crear Pantalla</h1> <br>
+                
                 <div class="form-row">
                     <div class="form-group col-md-12">
                     <label for="inputEmail4">Nombre</label>
@@ -81,5 +75,5 @@
             
         
     </div>
-</div>
+
 @endsection
