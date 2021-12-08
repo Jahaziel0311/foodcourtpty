@@ -69,7 +69,9 @@
                     </div>
                 </div>
 
-                <button type="submit" name="btnCrear" class="btn btn-primary" >Crear</button>
+                <div class="modal-footer">                                        
+                    <button type="submit"   class="btn btn-primary text-left">Guardar</button>
+                </div>
             </form>
         </div>
             

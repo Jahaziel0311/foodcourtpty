@@ -13,7 +13,8 @@
         "laravel/tinker": "^2.5",
         "league/flysystem": "~1.0",
         "league/flysystem-aws-s3-v3": "~1.0",
-        "simplesoftwareio/simple-qrcode": "~4"
+        "simplesoftwareio/simple-qrcode": "~4",
+        "spatie/laravel-backup": "^7.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

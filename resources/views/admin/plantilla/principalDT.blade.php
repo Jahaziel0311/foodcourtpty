@@ -114,8 +114,11 @@
     <script src="{{asset('admin/assets/libs/jquery/dist/jquery.min.js')}}"></script>
     
     @yield('script')
+
+	
+
 	<script>
-		$('#zero_config').DataTable( {
+		$('#example').DataTable( {
 			 
 			"language": {
 				

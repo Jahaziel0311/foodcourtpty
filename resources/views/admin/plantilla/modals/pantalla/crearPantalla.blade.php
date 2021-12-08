@@ -31,10 +31,11 @@
                     <div class="form-group col-md-6">
                     <label for="inputState">Padre</label>
                     <select name="txtPadre" id="selectPadre" class="form-control" onchange="hideElements();" required>
-                    <option value="0"  >Raiz</option>
-                    @foreach($padre as $fila)
-                        <option value="{{$fila->id}}" selected>{{$fila->nombre}}</option>
-                    @endforeach
+                        <option>Seleccione una Opcion...</option>
+                        <option value="0"  >Raiz</option>
+                        @foreach($padre as $fila)
+                            <option value="{{$fila->id}}">{{$fila->nombre}}</option>
+                        @endforeach
                     </select>
                     </div>
                     <!-- <div class="form-group col-md-4">
