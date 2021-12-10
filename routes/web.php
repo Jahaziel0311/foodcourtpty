@@ -44,6 +44,7 @@ Route::get('/admin/restaurantes/config2', [restauranteController::class, 'config
 Route::Post('/admin/restaurantes/config/save2', [restauranteController::class, 'configSave2'])->name('admin.restautante.config.save2');
 
 //PANTALLA
+Route::get("/admin/ordenar/menu", [pantallaController::class, 'ordenar'])->name("admin.pantallas.ordenar.menu");
 Route::get('/admin/pantallas', [pantallaController::class, 'index'])->name('admin.pantalla.index');
 Route::get('/admin/pantallas/create', [pantallaController::class, 'create'])->name('admin.pantalla.create');
 Route::post('/admin/pantallas/create', [pantallaController::class, 'insert'])->name("admin.pantalla.insert") ;
@@ -52,7 +53,6 @@ Route::get("/medico/delete/{id}", [pantallaController::class, 'delete'])->name("
 Route::get("/admin/pantalla/asignar", [pantallaController::class, 'asignarPantalla'])->name("admin.pantalla.asignarPantalla");
 Route::get("/admin/pantalla/asignar/{id}", [pantallaController::class, 'asignarPantallaXId'])->name("admin.pantalla.asignarPantalla");
 Route::Post("/admin/pantalla/asignar/save", [pantallaController::class, 'asignarPantallaSave'])->name("admin.pantalla.asignar.save");
-Route::get("/admin/pantallas/ordenarMenu", [pantallaController::class, 'ordenar'])->name("admin.pantallas.ordenar.menu");
 Route::Post("/admin/pantallas/ordenarMenu", [pantallaController::class, 'ordenarSave'])->name("admin.pantallas.ordenar.save");
 
 
