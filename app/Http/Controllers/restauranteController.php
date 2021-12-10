@@ -8,6 +8,7 @@ use App\Models\carpeta;
 use App\Models\imagen;
 use App\Models\user;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class restauranteController extends Controller
 {
