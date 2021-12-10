@@ -187,7 +187,7 @@ class Controller extends BaseController
     public static function crearCarpetaRestaurante($id){
 
 
-        $obj_restaurante = restaurante::find(Auth::user()->restaurante->id);
+        $obj_restaurante = restaurante::find($id);
         $obj_carpeta = new carpeta();
         $obj_carpeta->descripcion = 'Carpeta Restaurante '.$obj_restaurante->nombre;
         $obj_carpeta->save();
@@ -198,6 +198,7 @@ class Controller extends BaseController
         return $obj_carpeta->id;            
         
     }
-    
+
+
 
 }  
