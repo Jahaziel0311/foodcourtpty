@@ -18,7 +18,7 @@ use App\Http\Controllers\pantallaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("/admin/ordenarMenu", [pantallaController::class, 'ordenar']);
+Route::get('/admin/ordenarMenu', [pantallaController::class, 'ordenar']);
 
 //LOGIN
 
