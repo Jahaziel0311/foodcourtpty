@@ -58,7 +58,7 @@ class restauranteController extends Controller
                     
                     $obj_restaurante->save();
 
-                    Controller::crerCarpetaRestaurante($obj_restaurante->id);
+                    $carpeta_id = Controller::crerCarpetaRestaurante($obj_restaurante->id);
                     
                     $obj_user = new user();
                     $obj_user->nombre = $request->txtNombreDueño;
