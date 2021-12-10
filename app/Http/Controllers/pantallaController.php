@@ -270,5 +270,82 @@ class pantallaController extends Controller
             
         }
     }
+
+    public function ordenar(){
+
+        if(Auth::user()){ 
+
+            $pantallas_menu = Controller::urlsPantallasXUsuario();           
+
+            if (in_array('/admin/pantallas/create',$pantallas_menu)){
+
+                $pantallas = pantalla::where('padre',0)->get();
+                
+                return view('admin.pantalla.ordenarMenu',['pantallas'=>$pantallas]);
+
+            }else {
+
+                return redirect(route('admin.index'));
+                
+            }   
+            
+
+        }else {
+
+            return redirect(route('login.index'));
+            
+        }
+
+    }
+
+    public function ordenarSave(Request $request){
+
+        if(Auth::user()){ 
+
+            $pantallas_menu = Controller::urlsPantallasXUsuario();           
+
+            if (in_array('/admin/pantallas/create',$pantallas_menu)){
+
+                if ($request->inputOrden != null) {
+
+                    $lista = json_decode($request->inputOrden);                    
+
+                    foreach($lista as $numero_padre =>$padre){
+
+                        $obj_padre = pantalla::find($padre->id);
+                        $obj_padre->padre = 0;
+                        $obj_padre->orden = $numero_padre;
+                        $obj_padre->save();
+
+                        foreach ($padre->children as $numero_hijo => $hijo) {
+                            $obj_hijo = pantalla::find($hijo->id);
+                            $obj_hijo->padre = $padre->id;
+                            $obj_hijo->orden = $numero_hijo;
+                            $obj_hijo->save();
+                        }
+
+                        
+                    }
+                    
+                }
+
+                return redirect()->back()->withErrors(['success' => "Los datos se guardaron correctamente"]);
+                
+
+            }else {
+
+                return redirect(route('admin.index'));
+                
+            }   
+            
+
+        }else {
+
+            return redirect(route('login.index'));
+            
+        }
+
+
+    }
     
 }

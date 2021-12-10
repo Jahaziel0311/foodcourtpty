@@ -196,7 +196,7 @@ class restauranteController extends Controller
 
                 $file_name = $file_name.'.'.$extencion;
 
-                $path = $file->storeAs('public/restaurante/logo',$file_name,'s3');
+                //$path = $file->storeAs('public/restaurante/logo',$file_name,'s3');
                 
 
                 if(!Auth::user()->restaurante->carpeta_id){  
@@ -211,7 +211,7 @@ class restauranteController extends Controller
                 $obj_imagen->tipo_imagen_id = 9;// numero 9 para los iconos
                 $obj_imagen->url = env('AWS_URL').$path;
                 $obj_imagen->carpeta_id = Auth::user()->restaurante->carpeta_id;
-                $obj_imagen->save();
+                //$obj_imagen->save();
 
                 return $obj_imagen->url;
 

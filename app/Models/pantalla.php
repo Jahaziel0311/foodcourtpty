@@ -21,6 +21,6 @@ class pantalla extends Model
             array_push($lista,$pantalla_rol->pantalla->id);
         }
 
-        return pantalla::where('padre',$this->id)->whereIn('id',$lista)->where('estado',1)->get();
+        return pantalla::where('padre',$this->id)->whereIn('id',$lista)->where('estado',1)->orderBy('orden')->get();
     }
 }
