@@ -1,18 +1,6 @@
 # Changelog
 
-All notable changes to `ignition` will be documented in this file
-
-## 2.17.2 - 2021-11-29
-
-- scroll overflow on solutions
-
-## 2.17.1 - 2021-11-25
-
-- streamline Livewire solutions
-
-## 2.17.0 - 2021-11-24
-
-- improve recording of Livewire data
+All notable changes to `ignition` will be documented in this fil
 
 ## 2.16.1 - 2021-11-16
 
