@@ -55,6 +55,7 @@ Route::Post("/admin/pantalla/asignar/save", [pantallaController::class, 'asignar
 Route::get("/admin/pantallas/ordenarMenu", [pantallaController::class, 'ordenar'])->name("admin.pantallas.ordenar.menu");
 Route::Post("/admin/pantallas/ordenarMenu", [pantallaController::class, 'ordenarSave'])->name("admin.pantallas.ordenar.save");
 
+
 Route::get('/{nombreRestaurante}', [Controller::class, 'paginaRestaurante'])->name('pagina.main.restaurante');
 
 
