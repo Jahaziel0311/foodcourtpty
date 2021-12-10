@@ -368,7 +368,6 @@ final class Environment implements EnvironmentInterface, EnvironmentBuilderInter
         foreach ($this->listenerData as $listenerData) {
             \assert($listenerData instanceof ListenerData);
 
-            /** @psalm-suppress ArgumentTypeCoercion */
             if (! \is_a($event, $listenerData->getEvent())) {
                 continue;
             }

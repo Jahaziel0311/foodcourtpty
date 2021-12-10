@@ -1329,7 +1329,7 @@ trait ValidatesAttributes
         }
 
         $phpExtensions = [
-            'php', 'php3', 'php4', 'php5', 'phtml', 'phar',
+            'php', 'php3', 'php4', 'php5', 'phtml',
         ];
 
         return ($value instanceof UploadedFile)
