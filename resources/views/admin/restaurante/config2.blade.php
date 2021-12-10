@@ -13,7 +13,7 @@
 <div class="container-fluid col-lg-8 offset-lg-2">
     
 
-        <form action="{{route('admin.restautante.config.save2')}}" method="POST" role="form" autocomplete="off">
+        <form action="{{route('admin.restautante.config.save2')}}" method="POST" role="form" autocomplete="off" accept-charset="UTF-8" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row">
                        

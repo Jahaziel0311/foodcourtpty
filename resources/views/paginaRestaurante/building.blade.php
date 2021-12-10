@@ -10,7 +10,12 @@
     <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Pagina en Contruccion">
-    <link href="https://image.flaticon.com/icons/png/512/46/46420.png" rel="icon">
+    @if ($restaurante->carpeta->icono())
+        <link href="{!!$restaurante->carpeta->icono()->url!!}" rel="icon">
+    @else
+        <link href="https://image.flaticon.com/icons/png/512/46/46420.png" rel="icon">
+    @endif
+    
 
     <!-- Fonts
     ============================================= -->

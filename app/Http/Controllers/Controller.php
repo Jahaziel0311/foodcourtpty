@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\restaurante;
 use App\Models\producto;
 use App\Models\combo;
+use App\Models\carpeta;
 use App\Models\rol_pantalla;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -180,6 +182,21 @@ class Controller extends BaseController
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    public static function crearCarpetaRestaurante($id){
+
+
+        $obj_restaurante = restaurante::find(Auth::user()->restaurante->id);
+        $obj_carpeta = new carpeta();
+        $obj_carpeta->descripcion = 'Carpeta Restaurante '.$obj_restaurante->nombre;
+        $obj_carpeta->save();
+        
+        $obj_restaurante->carpeta_id = $obj_carpeta->id;
+        $obj_restaurante->save();
+
+        return $obj_carpeta->id;            
+        
     }
 
 }  

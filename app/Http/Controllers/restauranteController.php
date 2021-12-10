@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\restaurante;
 use App\Models\carpeta;
+use App\Models\imagen;
 use App\Models\user;
-
+use Illuminate\Support\Facades\DB;
 
 class restauranteController extends Controller
 {
@@ -53,12 +54,10 @@ class restauranteController extends Controller
                     $obj_restaurante = new restaurante();
                     $obj_restaurante->nombre = $request->txtNombre;
                     $obj_restaurante->slug = $slug; 
-    
-                    $obj_carpeta = new carpeta();
-                    $obj_carpeta->descripcion = 'Carpeta Restaurante '.$request->txtNombre;
-                    $obj_carpeta->save();
-                    $obj_restaurante->carpeta_id = $obj_carpeta->id;
+                    
                     $obj_restaurante->save();
+
+                    Controller::crerCarpetaRestaurante($obj_restaurante->id);
                     
                     $obj_user = new user();
                     $obj_user->nombre = $request->txtNombreDueño;
@@ -190,7 +189,34 @@ class restauranteController extends Controller
 
             if (in_array('/admin/restaurante/create',$pantallas_menu)){
 
-                return $request;
+                $file = $request->file('logo');
+                $file_name = now()->toArray()['day'].'_'.now()->toArray()['month'].'_'.mt_rand(1000,10000);
+                $extencion= $file->getClientOriginalExtension();
+
+                $file_name = $file_name.'.'.$extencion;
+
+                $path = $file->storeAs('public/restaurante/logo',$file_name,'s3');
+                
+
+                if(!Auth::user()->restaurante->carpeta_id){  
+                    
+
+                    Controller::crearCarpetaRestaurante(Auth::user()->restaurante->id);
+                }
+
+                DB::table('imagen')->where('tipo_imagen_id', '=', 9)->where('carpeta_id','=',Auth::user()->restaurante->carpeta_id)->delete();
+
+                $obj_imagen = new imagen();
+                $obj_imagen->tipo_imagen_id = 9;// numero 9 para los iconos
+                $obj_imagen->url = env('AWS_URL').$path;
+                $obj_imagen->carpeta_id = Auth::user()->restaurante->carpeta_id;
+                $obj_imagen->save();
+
+                return $obj_imagen->url;
+
+
+
+               
 
             }else {
 

@@ -37,6 +37,6 @@ class carpeta extends Model
 
     public function icono()
     {
-        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',5)->get()->first();
+        return $this->hasMany('App\Models\imagen')->where('tipo_imagen_id',9)->get()->first();
     }
 }
