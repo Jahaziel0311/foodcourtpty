@@ -18,7 +18,7 @@ use App\Http\Controllers\pantallaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get("/admin/ordenar/menu", [pantallaController::class, 'ordenar'])->name("admin.pantallas.ordenarMenu");
 
 //LOGIN
 
@@ -44,7 +44,7 @@ Route::get('/admin/restaurantes/config2', [restauranteController::class, 'config
 Route::Post('/admin/restaurantes/config/save2', [restauranteController::class, 'configSave2'])->name('admin.restautante.config.save2');
 
 //PANTALLA
-Route::get("/admin/ordenar/menu", [pantallaController::class, 'ordenar'])->name("admin.pantallas.ordenar.menu");
+
 Route::get('/admin/pantallas', [pantallaController::class, 'index'])->name('admin.pantalla.index');
 Route::get('/admin/pantallas/create', [pantallaController::class, 'create'])->name('admin.pantalla.create');
 Route::post('/admin/pantallas/create', [pantallaController::class, 'insert'])->name("admin.pantalla.insert") ;
