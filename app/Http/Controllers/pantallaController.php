@@ -279,7 +279,7 @@ class pantallaController extends Controller
 
             if (in_array('/admin/pantallas/create',$pantallas_menu)){
 
-                $pantallas = pantalla::where('padre',0)->get();
+                $pantallas = pantalla::where('padre',0)->orderBy('orden')->get();
                 
                 return view('admin.pantalla.ordenarMenu',['pantallas'=>$pantallas]);
 

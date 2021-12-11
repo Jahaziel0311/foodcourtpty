@@ -21,7 +21,7 @@
             </div>
                 
             <div class="table-responsive ">
-                <table id="example" class="table ">
+                <table id="zero_config" class="table ">
                     <thead>
                         <tr class="ppcolor text-white">
                             <th>id</th>

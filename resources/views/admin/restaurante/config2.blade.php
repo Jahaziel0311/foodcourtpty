@@ -21,7 +21,25 @@
                         <div class="form-group col-md-12">
                                 <label class="control-label mb-10">Ingrese la imagen de su logo</label>
                                 <div class="fallback">
-                                        <input name="logo" required type="file" accept=".png, .ico" />
+                                        <input name="logo"  type="file" accept=".png, .ico" />
+                                        @if($restaurante->carpeta->icono()!= null)
+                                                <img src="{{$restaurante->carpeta->icono()->url}}" width="100" >
+                                                <span>{{str_replace(env('AWS_URL')."public/", "", $restaurante->carpeta->icono()->url )}}</span> 
+                                        @endif
+                                </div>
+                                
+                                
+                                    
+                                
+                                
+                        </div>
+                        <br><br><br>
+
+                        <div class="form-group col-md-12">
+                                <label class="control-label mb-10">Ingrese las imagenes que Apareceran en su Banner</label><br>
+                                <span>Imagenes de gran Tamaño</span>
+                                <div class="fallback">
+                                        <input name="banners[]" multiple  type="file" accept="image/*" />
                                 </div>
                         </div>
                         

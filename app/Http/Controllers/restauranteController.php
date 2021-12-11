@@ -189,31 +189,64 @@ class restauranteController extends Controller
             $pantallas_menu = Controller::urlsPantallasXUsuario();
 
             if (in_array('/admin/restaurante/create',$pantallas_menu)){
-
+              
                 $file = $request->file('logo');
-                $file_name = now()->toArray()['day'].'_'.now()->toArray()['month'].'_'.mt_rand(1000,10000);
-                $extencion= $file->getClientOriginalExtension();
+                if($file != null){
 
-                $file_name = $file_name.'.'.$extencion;
-
-                //$path = $file->storeAs('public/restaurante/logo',$file_name,'s3');
+                    $file_name = now()->toArray()['day'].'_'.now()->toArray()['month'].'_'.mt_rand(1000,10000);
+                    $extencion= $file->getClientOriginalExtension();
+    
+                    $file_name = $file_name.'.'.$extencion;
+    
+                    $path = $file->storeAs('public/restaurante/logo',$file_name,'s3');
+                    
+    
+                    if(!Auth::user()->restaurante->carpeta_id){  
+                        
+    
+                        Controller::crearCarpetaRestaurante(Auth::user()->restaurante->id);
+                    }
+                    
+    
+                    $old_imagens = imagen::where('tipo_imagen_id', '=', 9)->where('carpeta_id','=',Auth::user()->restaurante->carpeta_id)->where('estado',1)->get();
+                    foreach ($old_imagens as $old_imagen) {
+                        $old_imagen->estado = 0;
+                        $old_imagen->save();
+                    }
+    
+                    $obj_imagen = new imagen();
+                    $obj_imagen->tipo_imagen_id = 9;// numero 9 para los iconos
+                    $obj_imagen->url = env('AWS_URL').$path;
+                    $obj_imagen->carpeta_id = Auth::user()->restaurante->carpeta_id;
+                    $obj_imagen->save();
+                    
+                }
                 
 
-                if(!Auth::user()->restaurante->carpeta_id){  
-                    
+                $images = $request->banners; 
+  
+                foreach($images as $image){
 
-                    Controller::crearCarpetaRestaurante(Auth::user()->restaurante->id);
+                    $file = $image;
+                    $file_name = now()->toArray()['day'].'_'.now()->toArray()['month'].'_'.mt_rand(1000,10000);
+                    $extencion= $file->getClientOriginalExtension();
+
+                    $file_name = $file_name.'.'.$extencion;
+
+                    $path = $file->storeAs('public/restaurante/banners',$file_name,'s3');
+                
+                    $obj_imagen = new imagen();
+                    $obj_imagen->tipo_imagen_id = 1; // numero 1 para los banners
+                    $obj_imagen->url = env('AWS_URL').$path;
+                    $obj_imagen->carpeta_id = Auth::user()->restaurante->carpeta_id;
+                    $obj_imagen->save();
+               
                 }
 
-                DB::table('imagen')->where('tipo_imagen_id', '=', 9)->where('carpeta_id','=',Auth::user()->restaurante->carpeta_id)->delete();
 
-                $obj_imagen = new imagen();
-                $obj_imagen->tipo_imagen_id = 9;// numero 9 para los iconos
-                $obj_imagen->url = env('AWS_URL').$path;
-                $obj_imagen->carpeta_id = Auth::user()->restaurante->carpeta_id;
-                //$obj_imagen->save();
+                
 
-                return $obj_imagen->url;
+                return "imagens salvadas";
 
 
 
